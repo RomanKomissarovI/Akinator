@@ -2,10 +2,10 @@
 #define NODE_H
 
 #ifndef format_tree
-#define format_tree "%d"
+#define format_tree "%s"
 #endif // format_tree
 
-typedef int Node_t;
+typedef char* Node_t;
 
 struct Node
 {
