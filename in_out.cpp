@@ -34,24 +34,16 @@ Node* TreeFileInput(FILE* input)
 
 void TreeFileOut(FILE* output, Node* node, int depth)
 {
-    assert(output != 0);
-
-    //MakeIndent(output, depth);
-    if (node == nullptr)
-    {
-        fprintf(output, "*\n");
-        return;
-    }
+    assert(output != nullptr);
+    if (node == nullptr) return;
 
     fprintf(output, format_tree "\n", node->data);
     fprintf(output, "%d %d\n", (node->left != nullptr), (node->right != nullptr));
 
     if (node->left != nullptr || node->right != nullptr)
     {
-        //MakeIndent(output, depth);
         TreeFileOut(output, node->left, depth + 1);
         TreeFileOut(output, node->right, depth + 1);
-        //MakeIndent(output, depth);
     }
 }
 
